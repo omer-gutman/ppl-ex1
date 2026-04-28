@@ -12,13 +12,27 @@ when using OOP the objects internal state constantly changes which can possible 
 
 1.2 
 
+const getDiscountedProductAveragePriceFP = (inventory: Product[]): number => {
+    const discounted = inventory.filter(p => p.discounted);
+    if (discounted.length === 0) return 0;
+    return discounted.reduce((sum, p) => sum + p.price, 0) / discounted.length;
+};
 
 1.3
 1. [3 points] (x, y) => x.some(y)
-2. [3 points]
-x => x.map(y => y * 2)
+<T>(x: T[], y: (element: T) => boolean) => boolean
+
+2. [3 points] x => x.map(y => y * 2)
+(x: number[]) => number[]
+
 3. [3 points] (x, y) => x.filter(y)
-4. [3 points]
-x => x.reduce((acc, cur) => acc + cur, 0)
+<T>(x: T[], y: (element: T) => boolean) => T[]
+
+4. [3 points] x => x.reduce((acc, cur) => acc + cur, 0)
+(x: number[]) => number[]
+
 5. [3 points] (x, y) => x ? y[0] : y[1]
+<T>(x: boolean, y: T[]) => T
+
 6. [3 points] (f,g) => x => f(g(x+1))
+<T, U>(f: (val: T) => U, g: (val: number) => T) => (x: number) => U
