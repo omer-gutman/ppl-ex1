@@ -1,9 +1,14 @@
 1. Explain in simple words the following programming paradigms:
 i. [5 points] Imperative
+Imperative is when giving the computer a step by step list of instructions
 ii. [5 points] Object Oriented
+is when you define objects and give them properties(data) and call their methods(functions) between these objects.
 iii. [5 points] Functional
+is when the program is a series of expressions to be evaluated. The focus is on what to compute rather than how to move data in memory functions are treated like any other value. they can be passed as arguments to other functions or returned as results.
 2. [5 points] How does the object oriented paradigm improve over the imperative paradigm?
+when using the imperative paradigm the code can become sacttered and unreadble using OOP organizes things into encapsulated objects. it keeps related data and behaviors together, which makes the code much easier to manage, resuse and think about 
 3. [5 points] How does the functional paradigm improve over the object oriented paradigm?
+when using OOP the objects internal state constantly changes which can possible lead to error if diffrent parts of the system are trying to change the same object at the same time. functinal programing avoids this by using immutable data. since function dont change anything outside of themselves, the code is more predictable and easier to test
 
 1.2 
 
