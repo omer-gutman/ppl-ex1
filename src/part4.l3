@@ -1,0 +1,39 @@
+;; Signature: last-item(lst)
+;; Type: [List(T) -> T]
+;; Purpose: Returns the last item in a non-empty list
+(define last-item
+  (lambda (lst)
+    (if (eq? (cdr lst) '())
+        (car lst)
+        (last-item (cdr lst)))))
+
+;; Signature: remove-last-item(lst)
+;; Type: [List(T) -> List(T)]
+;; Purpose: Returns the list without its last item
+(define remove-last-item
+  (lambda (lst)
+    (if (eq? (cdr lst) '())
+        '()
+        (cons (car lst) (remove-last-item (cdr lst))))))
+
+;; Signature: rotate-nth(lst n)
+;; Type: [List(T) * Number -> List(T)]
+;; Purpose: Rotates lst n times to the right (last element moves to front each step)
+(define rotate-nth
+  (lambda (lst n)
+    (if (= n 0)
+        lst
+        (rotate-nth
+          (cons (last-item lst) (remove-last-item lst))
+          (- n 1)))))
+
+;; Signature: deep-reverse(lst)
+;; Type: [List -> List]
+;; Purpose: Returns lst with all elements reversed at every level of nesting
+(define deep-reverse
+  (lambda (lst)
+    (if (eq? lst '())
+        '()
+        (if (pair? (car lst))
+            (append (deep-reverse (cdr lst)) (list (deep-reverse (car lst))))
+            (append (deep-reverse (cdr lst)) (list (car lst)))))))
